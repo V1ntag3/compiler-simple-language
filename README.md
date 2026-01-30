@@ -1,51 +1,96 @@
-# Compilador de LPMS
+# ⚙️ Compilador de LPMS
 
-Este projeto foi desenvolvido em Python e inclui um arquivo `requirements.txt` para instalar as dependências necessárias. Siga as etapas abaixo para configurar o ambiente, instalar as dependências e executar o programa principal.
+Este projeto consiste na implementação de um **compilador para a linguagem LPMS**, desenvolvido em **Python**, com foco em aprendizado de conceitos de compiladores, análise sintática, geração de código intermediário e geração de código em Assembly.
 
-## Requisitos
+O projeto utiliza um arquivo `requirements.txt` para gerenciamento de dependências.
 
-- Python 3.13
-- `pip`
+---
 
-## Configuração do Ambiente
+## 📌 Objetivo do Projeto
 
-1. Crie um ambiente virtual:
-   ```bash
-   python3 -m venv venv
-   ```
+O objetivo principal é compreender, na prática, as etapas envolvidas no desenvolvimento de um compilador, incluindo:
 
-2. Ative o ambiente virtual:
-   - **Windows**:
-     ```bash
-     .\venv\Scripts\activate
-     ```
-   - **Mac/Linux**:
-     ```bash
-     source venv/bin/activate
-     ```
+- Análise léxica
+- Análise sintática
+- Construção da AST (Abstract Syntax Tree)
+- Geração de código de três endereços
+- Geração de código Assembly (x86_64)
 
-3. Instale as dependências listadas no arquivo `requirements.txt`:
-   ```bash
-   pip install -r requirements.txt
-   ```
+---
 
-## Executando o Projeto
+## 🛠️ Requisitos
 
-Com o ambiente configurado e as dependências instaladas, execute o arquivo principal:
+- Python 3.13 ou superior
+- pip
+- Ambiente virtual (recomendado)
 
+---
+
+## ⚙️ Configuração do Ambiente
+
+### 1️⃣ Criação do Ambiente Virtual
+
+```bash
+python3 -m venv venv
+```
+2️⃣ Ativação do Ambiente Virtual
+Windows
+```bash
+.\venv\Scripts\activate
+```
+
+Linux / macOS
+```bash
+source venv/bin/activate
+```
+## 3️⃣ Instalação das Dependências
+```bash
+pip install -r requirements.txt
+```
+### ▶️ Executando o Projeto
+Após configurar o ambiente, execute o compilador com:
 ```bash
 python3 main.py input.lps
 ```
+Onde:
+- main.py é o arquivo principal do compilador
+- input.lps é o arquivo de entrada contendo o código-fonte em LPMS
 
-## Desativando o Ambiente Virtual
-
-Quando terminar, desative o ambiente virtual:
-
+## 📁 Arquivos Importantes
+Arquivo	Descrição
 ```bash
-deactivate
+main.py	#Arquivo principal do compilador
+input.lps	#Arquivo de teste principal
+input2.lps	#Arquivo de teste alternativo
+main_etapa_2.py	#Implementação da etapa 2 com suporte à AST
+assembly_code.s	#Código Assembly gerado pelo compilador
 ```
+## 🧠 Funcionamento do Compilador
+Durante a execução, o compilador:
 
-## OBS:
+1. Lê o código-fonte LPMS
+2. Gera a AST (Abstract Syntax Tree)
+3. Produz o código intermediário (três endereços)
+4. Gera o código Assembly (x86_64)
+5. Salva o resultado no arquivo assembly_code.s
+6. O código intermediário é exibido no terminal.
 
-Os arquivos input.lps e input2.lps tem operações que estão funcionando quando executados, o main.py mostra o código de três endereços e gera o arquivo assembly_code.s que contém o código em assembly. O site que utilizamos para executar o código assembly é o https://www.mycompiler.io/pt/new/asm-x86_64.
-Além disso foi feita a modificação na etapa 2 que está no main_etapa_2.py, já que somente essa semana consegui implementar AST com foi solicitado.
+## 🧪 Testes
+Os arquivos:
+```bash
+input.lps
+input2.lps
+```
+Contêm exemplos funcionais que demonstram as operações suportadas pelo compilador.
+
+## 💻 Execução do Código Assembly
+O código Assembly gerado pode ser executado online utilizando:
+
+🔗 https://www.mycompiler.io/pt/new/asm-x86_64
+
+Basta copiar o conteúdo do arquivo assembly_code.s e colar na plataforma.
+
+## 📌 Observações
+- A implementação da AST foi finalizada na etapa 2, disponível em main_etapa_2.py.
+- Essa funcionalidade foi adicionada posteriormente, conforme solicitado na disciplina.
+- Algumas funcionalidades podem estar em fase experimental.
